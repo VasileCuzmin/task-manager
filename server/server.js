@@ -37,6 +37,7 @@ app.get('/tasks/:id', (req, res) => {
 app.post('/tasks', (req, res) => {
   const newTask = { id: nanoid().toString(), ...req.body };
   newTask.id = newTask.id.toString();
+  newTask.createdAt = new Date().toISOString();
 
   db.data.tasks.push(newTask);
   res.status(201).json(newTask);

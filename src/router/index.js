@@ -4,11 +4,21 @@ import TaskFormPage from '../views/TaskFormPage.vue';
 import TaskDetailsPage from '../views/TaskDetailsPage.vue';
 import HomePage from '../views/HomePage.vue';
 import StatisticsPage from '@/views/StatisticsPage.vue';
+import TaskCommentsSection from '@/components/TaskCommentsSection.vue';
 
 const routes = [
     { path: '/', component: HomePage },
     { path: '/tasks', component: TasksPage },
-    { path: '/tasks/:id', component: TaskDetailsPage, props: true },
+    {
+        path: '/tasks/:id', component: TaskDetailsPage, props: true,
+        children: [
+            {
+                //  /tasks/:id/comments
+                path: 'comments',
+                component: TaskCommentsSection
+            }
+        ]
+    },
     { path: '/tasks/update/:id', component: TaskFormPage, props: true },
     { path: '/tasks/new', component: TaskFormPage },
     { path: '/statistics', component: StatisticsPage },

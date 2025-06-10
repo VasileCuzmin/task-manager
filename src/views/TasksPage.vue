@@ -1,7 +1,8 @@
 <template>
     <main>
         <h2>My Tasks</h2>
-        <TaskList :tasks="tasks" @update="updateTask" @delete="deleteTask" @toggle="toggleTask" />
+        <TaskList :tasks="tasks" @update="updateTask" @delete="deleteTask" @toggle="toggleTask"
+            @goToCommentsSection="goToCommentsSection" />
     </main>
 </template>
 
@@ -33,5 +34,10 @@ function deleteTask(id) {
 
 function toggleTask(id) {
     store.dispatch('tasks/toggleComplete', id);
+}
+
+function goToCommentsSection(id) {
+    debugger
+    router.push(`/tasks/${id}/comments`);
 }
 </script>
