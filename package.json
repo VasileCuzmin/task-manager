@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "install:all": "bash ./install-all.sh"
+    "start-all": "bash ./install-all.sh"
   },
   "dependencies": {
     "axios": "^1.9.0",
